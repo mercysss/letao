@@ -40,4 +40,35 @@ $(function(){
             }
         });
     }
+
+
+    // 给启用禁用按钮添加点击事件
+    //事件委托
+    $('.lt_content tbody').on("click",".btn",function(){
+        $('#userModal').modal("show");
+        currentId = $(this).parent().data("id");
+        isDelette = $(this).hasClass("btn-danger") ? 0 : 1;
+
+    });
+
+    //确认按钮被点击,发送请求,改变用户状态
+    $('#confirmBtn').click(function(){
+        $.ajax({
+            type: "post",
+            url:"/user/updateUser",
+            data:{
+                id: currentId,
+                isDelete:isDelete
+            },
+            dataType:"json",
+            success: function(info){
+                console.log(info);
+                if(info.suceess){
+                    $('#userModal').modal("hide");
+
+                    render();
+                }
+            }
+        })
+    })
 })
