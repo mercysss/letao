@@ -8,7 +8,7 @@ $.ajax({
         }
 
         if(info.error === 400){
-            location.herf = "login.html";
+            location.href = "login.html";
         }
     }
 })

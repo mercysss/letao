@@ -47,28 +47,31 @@ $(function(){
     $('.lt_content tbody').on("click",".btn",function(){
         $('#userModal').modal("show");
         currentId = $(this).parent().data("id");
-        isDelette = $(this).hasClass("btn-danger") ? 0 : 1;
+        console.log(currentId);
+        isDelete = $(this).hasClass("btn-danger") ? 0 : 1;
 
     });
 
     //确认按钮被点击,发送请求,改变用户状态
-    $('#confirmBtn').click(function(){
+    $('#confirmBtn').click(function() {
         $.ajax({
-            type: "post",
-            url:"/user/updateUser",
-            data:{
-                id: currentId,
-                isDelete:isDelete
-            },
-            dataType:"json",
-            success: function(info){
-                console.log(info);
-                if(info.suceess){
-                    $('#userModal').modal("hide");
-
-                    render();
-                }
+          type: "post",
+          url: "/user/updateUser",
+          data: {
+            id: currentId,
+            isDelete: isDelete
+          },
+          dataType: "json",
+          success: function( info ) {
+            console.log( info );
+            if ( info.success ) {
+              // 修改成功
+              // 关闭模态框
+              $('#userModal').modal("hide");
+              // 页面重新渲染
+              render();
             }
+          }
         })
-    })
+      })
 })
