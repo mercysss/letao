@@ -1,0 +1,39 @@
+a:link,
+a:visited,
+a:hover,
+a:active{
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}
+
+.red{
+    color:#A94442;
+}
+
+.table.table-bordered th,
+.table.table-bordered td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.body_bg {
+    background-color:#222D32;
+}
+
+.panel-title{
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+
+}
+
+.mt_150{
+    margin-top: 150px;
+}
+.mt_20{
+    margin-top: 20px;
+}
